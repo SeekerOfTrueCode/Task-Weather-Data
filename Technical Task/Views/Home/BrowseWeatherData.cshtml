@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Weather browser";
+}
+
+<div class="container text-center weather-card pt-2 pb-2" style="min-height: 80vh">
+
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">
+            <div class="card">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group p-2">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" style="width: 75px;" for="homeBrowseWeatherDataSelectCountries">Country</label>
+                            </div>
+                            <select id="homeBrowseWeatherDataSelectCountries" class="custom-select">
+                                <option>Loading...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="input-group p-2 pb-4">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" style="width: 75px;" for="homeBrowseWeatherDataSelectCities">City</label>
+                            </div>
+                            <select id="homeBrowseWeatherDataSelectCities" class="custom-select">
+                                <option>Loading...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center h-100">
+                    <div class="col-12">
+                        <div class="card p-2 m-2">
+                            <div id="homeBrowseWeatherDataDatePicker"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-sm-12">
+            <div id="homeBrowseWeatherDataWeatherContainer" class="card h-100">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="weather-sub-container" class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@section JavaScript
+{
+    @* Importing libraries *@
+    <link rel="stylesheet" href="@Url.Content("/lib/bootstrap/dist/css/bootstrap.css")">
+    <link rel="stylesheet" href="@Url.Content("/lib/bootstrap-datepicker/css/bootstrap-datepicker.css")">
+
+    <script type="text/javascript" src="@Url.Content("/lib/bootstrap-datepicker/js/bootstrap-datepicker.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/lib/jQuery-slimScroll/jquery.slimscroll.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/lib/moment.js/moment.js")"></script>
+    
+    @* Importing components *@
+    <script type="text/javascript" src="@Url.Content("/js/Logic/Api.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/TTSelect.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/TTDatePicker.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/WeatherElement.js")"></script>
+
+    @* Importing View *@
+    <script type="text/javascript" src="@Url.Content("/js/Views/BrowseWeatherData.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("/css/BrowseWeatherData.css")" />
+
+}

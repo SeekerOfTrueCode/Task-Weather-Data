@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Technical Task";
+}
+
+<div class="index-title">
+    <h1>Technical Task - Read me please</h1>
+    <p clas="lead">Implement Web Application using WebAPI and SQL Database with the following requirements:</p>
+</div>
+
+
+<div class="my-3 p-3 bg-white rounded shadow-lg">
+    <h4 class="border-bottom border-gray pb-2 mb-0 d-flex justify-content-between align-items-center w-100">
+        <p>Authorization</p>
+        <p class="d-block text-right">Technologies used: .NET, JavaScript, HTML, Web Services</p>
+    </h4>
+    <div class="media text-muted pt-3">
+        <i class="fas fa-users-cog mr-2 text-center align-self-center" style="width: 50px; height: 50px; font-size: 32px;"></i>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block display-1" style="font-size: 1.75rem">Admin</strong>
+            <small class="d-block text-info" style="font-size: 1.25rem">Email: @ViewData["AdminEmail"] | Password: @ViewData["AdminPassword"]</small>
+            Standard user should be able to browse weather data stored inside the database
+        </p>
+    </div>
+    <div class="media text-muted pt-3">
+        <i class="fas fa-user mr-2 text-center align-self-center" style="width: 50px; height: 50px;font-size: 32px;"></i>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block display-1" style="font-size: 1.75rem">Standard User</strong>
+            <small class="d-block text-info" style="font-size: 1.25rem">Email: @ViewData["StandardUserEmail"] | Password: @ViewData["StandardUserPassword"]</small>
+            Administrator should be able to refresh data being stored within the DB using external services
+        </p>
+    </div>
+</div>
+
+<div class="my-3 p-3 bg-white rounded shadow-lg">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <strong class="text-danger">Important:</strong>
+            <p>
+                For api to work with the app, the "Technical Task.Api" project has to have in properties the host with specific port: https://localhost:44310/
+                It is also defined in wwwroot/js/Logic/Api.js - this file is used to communicate with api. And also it's taken from "appsettings.json" if provided in key = ApiBaseUrl
+            </p>
+            <p class="text-danger">Connection string is in two places: Technical Task project and Technical Task.Api - make sure to set it as you have configured database in your development environment</p>
+            <p>Don't forget to apply migrations of DataBase</p>
+        </li>
+        <li class="list-group-item text-break">
+            <strong>What is done:</strong>
+            <p>
+                Browsing weather data is possible by going to "Weather browser" link. It requires sign in.
+                You can do it by using seed Standard User or by creating your own user. (ofc database has to work fine)
+            </p>
+
+            <p>
+                If you want to refresh data, or in other words update or add something new, then you have to sign in as an Admin.
+                In this case you have to use seed data, which is provided above and in "appsettings.json" file in app root.
+                By external service I understood creating my own Api with separate database access which communicates with the main app.
+                Api controllers use CQRS implemented with "Autofac" DI container and with MediatR - both very useful libraries.
+            </p>
+
+            <p>
+                Before adding any Weather Data it is required to add any Country and then assign (add) any city to that country.
+                It is possible in "Weather manager" page available only for Admin.
+            </p>
+
+            <p>
+                There is only one admin of the application and it is the one from the seed.
+            </p>
+
+            <p>
+                Privacy page and login / register are built in and didn't require much of my attention.
+                Only admin / user seed data were taking any of my time to programm.
+            </p>
+            <p>
+                I used simple built in "libman" to manage JS libraries, because it was simple small project therefore didn't require any Node.js stuff managing the front-end.
+                While building front-end / java script files I was inspired by widely used popular framework like: VueJs or React therefor some of the logic looks like it tries to mimic them.
+                Unfortunately I changed a few times concepts of building reusable components which caused differences between them in structure. I am aware it's not good to not to be consistent.
+            </p>
+            <p>
+                Access to DataBase is accomplished by Commands and Query which are segregating actions of getting data from DB (read) and setting data to DB (update / delete / create)
+            </p>
+            <p>
+                Fronted used occasionally moment.js / bootrap-datepicker and a lot of JQuery including slimScroll. JQuery allowed to quickly manage htmlElements and assign event's to them with handlers.
+                I started to make documentation to JavaScript files but found myself in situation where time was the essence therefore left it for sake of the futures.
+                Personally I prefer TypeScript over JavaScript which allows to determine types of the properties and makes many things easier (intellisens starts to be really useful with TypeScript).
+            </p>
+            <p>
+                A lot of time I've lost on learning how to deal with some new stuff like cross domain api usage and splitting project into many small ones.
+            </p>
+            <p>
+                Icons I used are from font-awesome and from weather-icons which help a lot with design of the page.
+            </p>
+            <p>
+                Most of all css is very poor. "style" attr should be converted to css classes.
+            </p>
+            <p>
+                One could say this project is over engineering but I would argue that some of the stuff although not necessary was a good addition to show understanding of some cool concepts that help in bigger projects.
+            </p>
+            <p>
+                DataBase is accessed with Entity Framework and with support of the LinQ.
+            </p>
+            <p>
+                Unit testing is almost empty, because this app is aka "CRUD" - create read update delete. Not much of the business logic.
+            </p>
+        </li>
+        <li class="list-group-item">
+            <strong>Potential for growth and what could be done better:</strong>
+            <p>
+                I believe I could've done adding Countries and Cities more fluently - with usage of selects in the sec one.
+                Add some editing even tho not necessary it would look much better in the overall look.
+            </p>
+            <p>
+                In the adding weather data I could've add moving data set from one city to other and maybe show from which city it is selected in the data-exposer in the Weather browser page.
+                Probably validation could've been done better and way of showing designing form.
+            </p>
+            <p>
+                Most of all it could use some external - external api which could load data with one click for a given period of time.
+                This would be a good feature and I think this is the best possible feature for expanding this project as a weather-browser.
+            </p>
+        </li>
+        <li class="list-group-item">
+            <strong>Summary:</strong>
+            I gave myself a lot of self-critic but I think that taking into account small amount of time it took to develop it, there is quite some code written.
+            Probably the weakest part is front-end even tho it took the longest time. Probably if used some framework it would be written much faster with less "spaghetti code" and less complexity.
+        </li>
+
+    </ul>
+</div>

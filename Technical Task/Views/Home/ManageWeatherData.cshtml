@@ -1,0 +1,178 @@
+﻿@{
+    ViewData["Title"] = "ManageWeatherData";
+}
+<div id="notify" class="position-absolute d-flex flex-column p-4" style="z-index: 100; right: 0;">
+
+</div>
+
+<div class="container text-center weather-card pt-2 pb-2" style="min-height: 80vh">
+    <div class="row display-flex pt-2">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <nav class="mb-2 navbar-light">
+                        <div class="nav nav-pills" id="nav-pill" role="tablist">
+                            <a id="nav-cac-tab"
+                               class="nav-item nav-link active"
+                               data-toggle="tab"
+                               href="#nav-cac"
+                               role="tab"
+                               aria-controls="nav-cac"
+                               aria-selected="true">
+                                Manage countries and cities
+                            </a>
+                            <a id="nav-wd-tab"
+                               class="nav-item nav-link"
+                               data-toggle="tab"
+                               href="#nav-wd"
+                               role="tab"
+                               aria-controls="nav-wd"
+                               aria-selected="false">
+                                Manage weather data
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="tab-content" id="nav-tabContent">
+                        <!--First Tab-->
+                        <div class="tab-pane fade show active" id="nav-cac" role="tabpanel" aria-labelledby="nav-cac-tab">
+
+                            <div class="row h-100">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div id="homeManageWeatherDataCountriesManager" class="card">
+                                        <div class="row align-items-center h-100">
+                                            <div class="col text-center">
+                                                <div class="spinner-border text-mute" style="width: 3rem; height: 3rem;" role="status">
+                                                    <span class="sr-only">Bootstrap spinner is not working</span>
+                                                </div>
+                                                <p>Loading...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div id="homeManageWeatherDataCitiesManager" class="card">
+                                        <div class="row align-items-center h-100">
+                                            <div class="col text-center">
+                                                <div class="spinner-border text-mute" style="width: 3rem; height: 3rem;" role="status">
+                                                    <span class="sr-only">Bootstrap spinner is not working</span>
+                                                </div>
+                                                <p>Loading...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Sec Tab-->
+                        <div class="tab-pane fade" id="nav-wd" role="tabpanel" aria-labelledby="nav-wd-tab">
+
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="card h-100">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group p-2">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text" style="width: 75px;" for="homeManageWeatherDataSelectCountries">Country</label>
+                                                    </div>
+                                                    <select id="homeManageWeatherDataSelectCountries" class="custom-select">
+                                                        <option>Loading...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group p-2 pb-4">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text" style="width: 75px;" for="homeManageWeatherDataSelectCities">City</label>
+                                                    </div>
+                                                    <select id="homeManageWeatherDataSelectCities" class="custom-select">
+                                                        <option>Loading...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center h-100">
+                                            <div class="col-12">
+                                                <div class="card p-2 m-2">
+                                                    <div id="homeManageWeatherDataDatepicker"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-sm-12">
+                                    <div class="card">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="container">
+                                                    <h2 id="homeManageWeatherDataAddOrEditTitle">Add new weather day data</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="container">
+                                                    <div id="homeManageWeatherDataInputCloudiness"></div>
+                                                    <div id="homeManageWeatherDataInputWind"></div>
+                                                    <div id="homeManageWeatherDataInputHumidity"></div>
+                                                    <div id="homeManageWeatherDataInputRainChance"></div>
+                                                    <div id="homeManageWeatherDataInputPressure"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="container">
+                                                    <div id="homeManageWeatherDataInputTemperatures" class="pr-3">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="container">
+                                                    <button id="homeManageWeatherDataSubmitWeatherDay" class="btn btn-outline-dark mb-2">Submit</button>
+                                                    <button id="homeManageWeatherDataDeleteWeatherDay" class="btn btn-outline-danger mb-2" style="display: none !important">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section JavaScript
+    {
+    @* Importing libraries *@
+    <link rel="stylesheet" href="@Url.Content("/lib/bootstrap/dist/css/bootstrap.css")">
+    <link rel="stylesheet" href="@Url.Content("/lib/bootstrap-datepicker/css/bootstrap-datepicker.css")">
+
+    <script type="text/javascript" src="@Url.Content("/lib/bootstrap-datepicker/js/bootstrap-datepicker.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/lib/jQuery-slimScroll/jquery.slimscroll.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/lib/moment.js/moment.js")"></script>
+
+    @* Importing components *@
+    <script type="text/javascript" src="@Url.Content("/js/Logic/Api.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/TTListCrud.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/TTNotification.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/TTDatePicker.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/TTSelect.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Components/TTInput.js")"></script>
+
+
+    @* Importing View *@
+    <script type="text/javascript" src="@Url.Content("/js/Views/ManageWeatherDataTemperaturesPartialView.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/js/Views/ManageWeatherData.js")"></script>
+
+
+}
